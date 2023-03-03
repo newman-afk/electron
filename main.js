@@ -4,12 +4,14 @@ const fs = require("fs");
 const resizeImg = require("resize-img");
 const { app, BrowserWindow, Menu, ipcMain, shell } = require("electron");
 
+process.env.NODE_ENV = "production";
+
 const isMac = process.platform === "darwin";
 const isDev = process.env.NODE_ENV !== "production";
 
 let mainWindow;
 
-function createMainWindow() {
+async function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: isDev ? 1000 : 800,
     height: 600,
@@ -20,12 +22,13 @@ function createMainWindow() {
     },
   });
   //   Open devtools window
-  if (isDev) {
-    console.log("Open devtools window");
-    mainWindow.webContents.openDevTools();
-  }
 
-  mainWindow.loadFile(path.join(__dirname, "./renderer/index.html"));
+  await mainWindow.loadFile(path.join(__dirname, "./renderer/index.html"));
+
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+    console.log("Open devtools window");
+  }
 }
 
 function createAboutWindow() {
