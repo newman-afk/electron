@@ -1,16 +1,30 @@
 {
-  "name": "electron",
+  "name": "imageresizer",
   "version": "1.0.0",
-  "description": "",
+  "description": "ImageResizer",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "author": "",
+  "author": "Lip",
   "license": "ISC",
   "dependencies": {
-    "electron": "^23.1.1",
     "resize-img": "^2.0.0",
     "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "electron": "^23.1.1",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.example.app",
+    "productName": "Image Resizer",
+    "target": "NSIS",
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
   }
 }
