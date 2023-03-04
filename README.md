@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/angular2-expandable-list.svg)](https://www.npmjs.com/package/npm/v/8.19.2)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 # Electron Image-Resizer
 ![this is an image](https://github.com/newman-afk/electron/blob/master/assets/screen.png)
 ## How I made it?
